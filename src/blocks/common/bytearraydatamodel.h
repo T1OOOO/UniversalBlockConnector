@@ -48,6 +48,8 @@ public:
 
   bool portCaptionVisible(PortType, PortIndex) const override;
 
+  ConnectionPolicy portInConnectionPolicy(PortIndex) const override;
+
   QWidget *embeddedWidget() override {
     if (!m_dataController) {
       return nullptr;

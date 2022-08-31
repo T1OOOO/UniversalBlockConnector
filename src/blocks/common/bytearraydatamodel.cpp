@@ -268,6 +268,11 @@ bool ByteArrayDataModel::portCaptionVisible(PortType type, PortIndex) const {
   return false;
 }
 
+NodeDataModel::ConnectionPolicy
+ByteArrayDataModel::portInConnectionPolicy(QtNodes::PortIndex) const {
+  return ConnectionPolicy::Many;
+}
+
 void ByteArrayDataModel::registerController(
     const QSharedPointer<ByteArrayDataController> &controller) {
   m_dataController = controller;

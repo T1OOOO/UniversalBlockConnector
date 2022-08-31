@@ -43,7 +43,11 @@ bool SerialController::open(const SerialSettings &settings) {
 
   return true;
 }
-void SerialController::close() { m_sock->close(); }
+void SerialController::close() {
+  m_sock->close();
+
+  emit signal_close();
+}
 
 void SerialController::write(const QByteArray &data) { m_sock->write(data); }
 

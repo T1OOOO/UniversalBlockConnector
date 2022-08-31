@@ -44,7 +44,11 @@ bool UdpController::open(const QString &address, const qint16 port) {
 
   return true;
 }
-void UdpController::close() { m_sock->close(); }
+void UdpController::close() {
+  m_sock->close();
+
+  emit signal_close();
+}
 
 void UdpController::write(const QByteArray &data) {
   m_sock->writeDatagram(data, QHostAddress(m_clientAddress), m_clientPort);

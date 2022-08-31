@@ -1,4 +1,5 @@
 #include "tcpclientcontroller.h"
+#include <QHostAddress>
 #include <QtDebug>
 
 namespace {
@@ -51,6 +52,8 @@ bool TcpClientController::connectToHost(const QString &clientAddress,
 void TcpClientController::close() {
   m_sock->disconnectFromHost();
   m_sock->close();
+
+  void signal_close();
 }
 
 void TcpClientController::write(const QByteArray &data) { m_sock->write(data); }

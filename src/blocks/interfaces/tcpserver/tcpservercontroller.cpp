@@ -52,8 +52,6 @@ void TcpServerController::close() {
   m_clientList.clear();
 
   emit signal_close();
-
-  m_widget->setTitle("Closed");
 }
 
 void TcpServerController::write(const QByteArray &data) {
@@ -119,7 +117,7 @@ void TcpServerController::slot_onReadyRead() {
 
   const QByteArray data = sock->readAll();
 
-  emit signal_data(data);
+  sendDataAll(data);
 }
 
 void TcpServerController::onReceiveData(PortType portType, PortIndex portIndex,

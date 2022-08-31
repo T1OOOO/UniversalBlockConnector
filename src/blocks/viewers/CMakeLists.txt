@@ -1,16 +1,31 @@
 project(UBCViewers)
 
-add_library(UBCViewers STATIC
+set(source_path ${UBCViewers_SOURCE_DIR})
+
+set(viewers_headers
     #Viewer
     dataviewer/dataviewercontroller.h
-    dataviewer/dataviewercontroller.cpp
     dataviewer/dataviewerwidget.h
+    dataviewer/dataviewermodel.h)
+
+set(viewers_sources
+    #Viewer
+    dataviewer/dataviewercontroller.cpp
     dataviewer/dataviewerwidget.cpp
-    dataviewer/dataviewermodel.h
     dataviewer/dataviewermodel.cpp)
 
-#find_package(QT NAMES Qt5 Qt6 REQUIRED COMPONENTS Core Widgets)
-#find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Widgets)
+set(sources
+    ${viewers_headers}
+    ${viewers_sources}
+)
+
+source_group(TREE ${source_path} FILES ${sources})
+
+add_library(UBCViewers STATIC)
+target_sources(UBCViewers PRIVATE ${sources})
+
+find_package(QT NAMES Qt5 Qt6 REQUIRED COMPONENTS Core Widgets)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Widgets)
 #find_package(nodes)
 
 target_link_libraries(UBCViewers UBCCommon)

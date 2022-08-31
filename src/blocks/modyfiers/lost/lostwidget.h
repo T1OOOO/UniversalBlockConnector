@@ -10,6 +10,7 @@
 #include "../../common/bytearraydatawidget.h"
 
 enum LostMode { LM_PACKET = 0, LM_STREAM, LM_SIZE };
+Q_DECLARE_METATYPE(LostMode)
 
 struct LostSettings {
   LostMode mode;

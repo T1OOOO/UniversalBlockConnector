@@ -27,7 +27,7 @@ bool SocketTableDelegate::editorEvent(QEvent *event, QAbstractItemModel *model,
 
   if (event->type() == QEvent::MouseButtonRelease) {
     QMouseEvent *e = static_cast<QMouseEvent *>(event);
-    if (option.rect.contains(e->position().toPoint())) {
+    if (option.rect.contains(e->pos())) {
 
       emit signal_close(row);
     }
@@ -36,14 +36,14 @@ bool SocketTableDelegate::editorEvent(QEvent *event, QAbstractItemModel *model,
   } else if (event->type() == QEvent::MouseButtonPress) {
     QMouseEvent *e = static_cast<QMouseEvent *>(event);
 
-    if (option.rect.contains(e->position().toPoint())) {
+    if (option.rect.contains(e->pos())) {
       m_pressedRow = row;
       m_mouseOver = true;
     }
   } else if (event->type() == QEvent::MouseMove) {
     QMouseEvent *e = static_cast<QMouseEvent *>(event);
 
-    m_mouseOver = option.rect.contains(e->position().toPoint());
+    m_mouseOver = option.rect.contains(e->pos());
   }
 
   return true;
