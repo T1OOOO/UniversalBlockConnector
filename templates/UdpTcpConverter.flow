@@ -1,0 +1,109 @@
+{
+    "connections": [
+        {
+            "in_id": "{396f75a9-fc2f-4ccc-bbf7-e07d38c78f26}",
+            "in_index": 0,
+            "out_id": "{ed30fb32-644a-4b53-b0c7-967a3d8b1b16}",
+            "out_index": 0
+        },
+        {
+            "in_id": "{85fa0204-941c-40c1-b854-be3effe6d5df}",
+            "in_index": 0,
+            "out_id": "{858c79d0-d5a5-4b84-8e17-940383551e32}",
+            "out_index": 0
+        },
+        {
+            "in_id": "{fd266954-909f-4136-b7cd-737e58e1fdf2}",
+            "in_index": 0,
+            "out_id": "{73fd5e10-6ea3-413f-8550-82cbb662b849}",
+            "out_index": 0
+        }
+    ],
+    "nodes": [
+        {
+            "id": "{85fa0204-941c-40c1-b854-be3effe6d5df}",
+            "model": {
+                "name": "TcpServer",
+                "settings": {
+                    "srcAddress": "127.0.0.1",
+                    "srcPort": 5002
+                }
+            },
+            "position": {
+                "x": 381.5999999999999,
+                "y": 109.44
+            }
+        },
+        {
+            "id": "{ed30fb32-644a-4b53-b0c7-967a3d8b1b16}",
+            "model": {
+                "name": "TcpClient",
+                "settings": {
+                    "clientAddress": "127.0.0.1",
+                    "clientPort": 5002
+                }
+            },
+            "position": {
+                "x": -181.43999999999986,
+                "y": 514.9439999999996
+            }
+        },
+        {
+            "id": "{73fd5e10-6ea3-413f-8550-82cbb662b849}",
+            "model": {
+                "name": "DataSenderSource",
+                "settings": {
+                    "text": "test"
+                }
+            },
+            "position": {
+                "x": -217.43999999999994,
+                "y": -259.19999999999993
+            }
+        },
+        {
+            "id": "{858c79d0-d5a5-4b84-8e17-940383551e32}",
+            "model": {
+                "name": "Udp",
+                "settings": {
+                    "clientAddress": "127.0.0.1",
+                    "clientPort": 5002,
+                    "srcAddress": "127.0.0.1",
+                    "srcPort": 5001
+                }
+            },
+            "position": {
+                "x": -218.87999999999988,
+                "y": 97.91999999999996
+            }
+        },
+        {
+            "id": "{396f75a9-fc2f-4ccc-bbf7-e07d38c78f26}",
+            "model": {
+                "name": "DataViewer",
+                "settings": {
+                }
+            },
+            "position": {
+                "x": 466.56000000000006,
+                "y": 430.2719999999998
+            }
+        },
+        {
+            "id": "{fd266954-909f-4136-b7cd-737e58e1fdf2}",
+            "model": {
+                "name": "Udp",
+                "settings": {
+                    "clientAddress": "127.0.0.1",
+                    "clientPort": 5001,
+                    "srcAddress": "127.0.0.1",
+                    "srcPort": 5000
+                }
+            },
+            "position": {
+                "x": 300.9599999999999,
+                "y": -256.31999999999994
+            }
+        }
+    ]
+}

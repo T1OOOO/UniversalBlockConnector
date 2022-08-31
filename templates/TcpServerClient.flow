@@ -1,0 +1,71 @@
+{
+    "connections": [
+        {
+            "in_id": "{68a6fc63-49b0-425c-bae4-305d61bac01b}",
+            "in_index": 0,
+            "out_id": "{9aaf163d-7b39-4a7a-a6d3-408572d6b2c5}",
+            "out_index": 0
+        },
+        {
+            "in_id": "{b6f53637-289e-4381-9ef1-e50ee2a1c8c4}",
+            "in_index": 0,
+            "out_id": "{2ef5e88a-c26c-4f5a-83e6-2edbdc3836c0}",
+            "out_index": 0
+        }
+    ],
+    "nodes": [
+        {
+            "id": "{68a6fc63-49b0-425c-bae4-305d61bac01b}",
+            "model": {
+                "name": "DataViewer",
+                "settings": {
+                }
+            },
+            "position": {
+                "x": 517.8000000000001,
+                "y": 510.4
+            }
+        },
+        {
+            "id": "{9aaf163d-7b39-4a7a-a6d3-408572d6b2c5}",
+            "model": {
+                "name": "TcpClient",
+                "settings": {
+                    "clientAddress": "127.0.0.1",
+                    "clientPort": 5000
+                }
+            },
+            "position": {
+                "x": -42,
+                "y": 488.79999999999995
+            }
+        },
+        {
+            "id": "{2ef5e88a-c26c-4f5a-83e6-2edbdc3836c0}",
+            "model": {
+                "name": "DataSenderSource",
+                "settings": {
+                    "text": "test"
+                }
+            },
+            "position": {
+                "x": 16,
+                "y": 190
+            }
+        },
+        {
+            "id": "{b6f53637-289e-4381-9ef1-e50ee2a1c8c4}",
+            "model": {
+                "name": "TcpServer",
+                "settings": {
+                    "srcAddress": "127.0.0.1",
+                    "srcPort": 5000
+                }
+            },
+            "position": {
+                "x": 475,
+                "y": 230
+            }
+        }
+    ]
+}

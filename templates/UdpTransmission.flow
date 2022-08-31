@@ -1,0 +1,75 @@
+{
+    "connections": [
+        {
+            "in_id": "{e0ec0f4c-878c-40f9-8027-07071e96ca3a}",
+            "in_index": 0,
+            "out_id": "{a87abe46-40ac-4d5a-8a90-b961608abcdb}",
+            "out_index": 0
+        },
+        {
+            "in_id": "{1e2301f0-c794-489a-b720-abdbdf9d60e3}",
+            "in_index": 0,
+            "out_id": "{30e49dcd-deca-4ca6-b833-e7ed317e6da5}",
+            "out_index": 0
+        }
+    ],
+    "nodes": [
+        {
+            "id": "{e0ec0f4c-878c-40f9-8027-07071e96ca3a}",
+            "model": {
+                "name": "DataViewer",
+                "settings": {
+                }
+            },
+            "position": {
+                "x": 368.06399999999985,
+                "y": 430.2719999999999
+            }
+        },
+        {
+            "id": "{30e49dcd-deca-4ca6-b833-e7ed317e6da5}",
+            "model": {
+                "name": "DataSenderSource",
+                "settings": {
+                    "text": "test"
+                }
+            },
+            "position": {
+                "x": -146.87999999999994,
+                "y": 168.47999999999993
+            }
+        },
+        {
+            "id": "{a87abe46-40ac-4d5a-8a90-b961608abcdb}",
+            "model": {
+                "name": "Udp",
+                "settings": {
+                    "clientAddress": "127.0.0.1",
+                    "clientPort": 5000,
+                    "srcAddress": "127.0.0.1",
+                    "srcPort": 5001
+                }
+            },
+            "position": {
+                "x": -197.85599999999965,
+                "y": 419.6159999999999
+            }
+        },
+        {
+            "id": "{1e2301f0-c794-489a-b720-abdbdf9d60e3}",
+            "model": {
+                "name": "Udp",
+                "settings": {
+                    "clientAddress": "127.0.0.1",
+                    "clientPort": 5001,
+                    "srcAddress": "127.0.0.1",
+                    "srcPort": 5000
+                }
+            },
+            "position": {
+                "x": 312.76,
+                "y": 34
+            }
+        }
+    ]
+}

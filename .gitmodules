@@ -1,0 +1,6 @@
+[submodule "3rdparty/Log4Qt"]
+	path = 3rdparty/Log4Qt
+	url = https://github.com/T1OOOO/Log4Qt.git
+[submodule "3rdparty/nodeeditor"]
+	path = 3rdparty/nodeeditor
+	url = https://github.com/T1OOOO/nodeeditor.git
