@@ -34,7 +34,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow{parent} {
 
   auto *layout = new QVBoxLayout(widget);
 
-  m_view = new FlowView(m_scene, widget);
+  m_view = new FlowView(widget);
   m_scene = new FlowScene(registerDataModels(), m_view);
   m_view->setScene(m_scene);
   layout->addWidget(m_view);

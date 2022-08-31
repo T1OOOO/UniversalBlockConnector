@@ -68,7 +68,6 @@ source_group(TREE ${source_path} FILES ${sources})
 add_library(UBCInterfaces STATIC)
 target_sources(UBCInterfaces PRIVATE ${sources})
 
-find_package(QT NAMES Qt5 Qt6 REQUIRED COMPONENTS Core Widgets Network SerialPort)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Widgets Network SerialPort)
 #find_package(NodeEditor)
 

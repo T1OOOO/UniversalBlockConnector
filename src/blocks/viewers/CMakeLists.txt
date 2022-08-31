@@ -24,7 +24,6 @@ source_group(TREE ${source_path} FILES ${sources})
 add_library(UBCViewers STATIC)
 target_sources(UBCViewers PRIVATE ${sources})
 
-find_package(QT NAMES Qt5 Qt6 REQUIRED COMPONENTS Core Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Widgets)
 #find_package(nodes)
 
