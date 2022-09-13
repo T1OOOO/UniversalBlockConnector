@@ -6,13 +6,25 @@ set(viewers_headers
     #Viewer
     dataviewer/dataviewercontroller.h
     dataviewer/dataviewerwidget.h
-    dataviewer/dataviewermodel.h)
+    dataviewer/dataviewermodel.h
+
+    #Tmp
+    tmp/tmpcontroller.h
+    tmp/tmpwidget.h
+    tmp/tmpmodel.h
+)
 
 set(viewers_sources
     #Viewer
     dataviewer/dataviewercontroller.cpp
     dataviewer/dataviewerwidget.cpp
-    dataviewer/dataviewermodel.cpp)
+    dataviewer/dataviewermodel.cpp
+
+    #Tmp
+    tmp/tmpcontroller.cpp
+    tmp/tmpwidget.cpp
+    tmp/tmpmodel.cpp
+)
 
 set(sources
     ${viewers_headers}
