@@ -22,7 +22,7 @@ add_subdirectory(src/blocks/sources)
 add_subdirectory(src/blocks/interfaces)
 add_subdirectory(src/blocks/modyfiers)
 add_subdirectory(src/blocks/viewers)
-#add_subdirectory(src/blocks/struct)
+add_subdirectory(src/blocks/struct)
 
 #add_subdirectory(src/blocks/struct)
 #add_subdirectory(src/protocol)
@@ -50,6 +50,6 @@ add_executable(UniversalBlockConnector
 
 target_link_libraries(UniversalBlockConnector Qt${QT_VERSION_MAJOR}::Core
     Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Charts nodes UBCSources UBCInterfaces
-    UBCModyfiers  UBCViewers UBCUtils log4qt qbinarizer::qbinarizer) #UBCStructs
+    UBCModyfiers  UBCViewers UBCUtils UBCStructs log4qt qbinarizer::qbinarizer) #
 #UBCStruct crc bitfield-c
 

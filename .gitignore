@@ -30,3 +30,6 @@ build/
 # Doc files
 doc/*.txt
 doc/**/*.txt
+
+# User files
+*.user
