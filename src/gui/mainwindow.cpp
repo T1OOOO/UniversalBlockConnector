@@ -20,9 +20,9 @@
 //#include "struct/structsender/structsendermodel.h"
 //#include "struct/structviewer/structviewermodel.h"
 //#include "struct/structviewer/structviewermodel.h"
-#include "struct/structgraphviewer/structgraphviewermodel.h"
-#include "struct/structsender/structsendermodel.h"
-#include "struct/structviewer/structviewermodel.h"
+//#include "struct/structgraphviewer/structgraphviewermodel.h"
+//#include "struct/structsender/structsendermodel.h"
+//#include "struct/structviewer/structviewermodel.h"
 #include "viewers/dataviewer/dataviewermodel.h"
 
 using QtNodes::ConnectionStyle;
@@ -77,11 +77,11 @@ std::shared_ptr<DataModelRegistry> MainWindow::registerDataModels() {
 
   ret->registerModel<LostDataModel>("Modyfiers");
 
-  ret->registerModel<StructGraphViewerModel>("Struct");
+  //ret->registerModel<StructGraphViewerModel>("Struct");
 
-  ret->registerModel<StructViewerModel>("Struct");
+  //ret->registerModel<StructViewerModel>("Struct");
 
-  ret->registerModel<StructSenderModel>("Struct");
+  //ret->registerModel<StructSenderModel>("Struct");
 
   //  ret->registerModel<StructSenderModel>("Struct");
 

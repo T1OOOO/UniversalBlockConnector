@@ -9,9 +9,9 @@ set(viewers_headers
     dataviewer/dataviewermodel.h
 
     #Tmp
-    tmp/tmpcontroller.h
-    tmp/tmpwidget.h
-    tmp/tmpmodel.h
+    #tmp/tmpcontroller.h
+    #tmp/tmpwidget.h
+    #tmp/tmpmodel.h
 )
 
 set(viewers_sources
@@ -21,9 +21,9 @@ set(viewers_sources
     dataviewer/dataviewermodel.cpp
 
     #Tmp
-    tmp/tmpcontroller.cpp
-    tmp/tmpwidget.cpp
-    tmp/tmpmodel.cpp
+    #tmp/tmpcontroller.cpp
+    #tmp/tmpwidget.cpp
+    #tmp/tmpmodel.cpp
 )
 
 set(sources
