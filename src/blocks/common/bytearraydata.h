@@ -3,7 +3,7 @@
 
 #include <QObject>
 #include <QUuid>
-#include <nodes/NodeData>
+#include <QtNodes/NodeData>
 
 #include "log4qt/logger.h"
 

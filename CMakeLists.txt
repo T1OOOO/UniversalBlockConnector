@@ -2,6 +2,13 @@ cmake_minimum_required(VERSION 3.14)
 
 project(UniversalBlockConnector LANGUAGES CXX)
 
+# Option to generate compile_commands.json (useful for IDEs and clangd)
+# Can be disabled with: cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=OFF
+option(ENABLE_COMPILE_COMMANDS "Generate compile_commands.json for clangd and IDEs" ON)
+if(ENABLE_COMPILE_COMMANDS)
+    set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+endif()
+
 set(QT_CREATOR_SKIP_PACKAGE_MANAGER_SETUP ON)
 set(QT_CREATOR_SKIP_CONAN_SETUP ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -29,6 +36,10 @@ add_subdirectory(src/blocks/struct)
 #add_subdirectory(src/script)
 
 add_subdirectory(3rdparty/nodeeditor)
+# Create alias 'nodes' for QtNodes for backward compatibility
+if(TARGET QtNodes AND NOT TARGET nodes)
+    add_library(nodes ALIAS QtNodes)
+endif()
 add_subdirectory(3rdparty/Log4Qt)
 add_subdirectory(3rdparty/qbinarizer)
 #add_subdirectory(3rdparty/libcrc)

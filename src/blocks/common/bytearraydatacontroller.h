@@ -7,7 +7,7 @@
 #include "bytearraydatawidget.h"
 #include "log4qt/logger.h"
 
-#include <nodes/NodeDataModel>
+#include <QtNodes/NodeDelegateModel>
 
 using QtNodes::PortIndex;
 using QtNodes::PortType;

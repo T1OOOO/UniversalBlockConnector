@@ -5,9 +5,9 @@
 #include <QScreen>
 #include <QVBoxLayout>
 
-#include <nodes/ConnectionStyle>
-#include <nodes/NodeData>
-#include <nodes/TypeConverter>
+#include <QtNodes/ConnectionStyle>
+#include <QtNodes/DataFlowGraphModel>
+#include <QtNodes/NodeData>
 
 #include "interfaces/serial/serialdatamodel.h"
 #include "interfaces/tcpclient/tcpclientdatamodel.h"
@@ -26,8 +26,7 @@
 #include "viewers/dataviewer/dataviewermodel.h"
 
 using QtNodes::ConnectionStyle;
-using QtNodes::TypeConverter;
-using QtNodes::TypeConverterId;
+using QtNodes::DataFlowGraphModel;
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow{parent} {
   setStyle();
@@ -37,17 +36,17 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow{parent} {
 
   auto *layout = new QVBoxLayout(widget);
 
-  m_view = new FlowView(widget);
-  m_scene = new FlowScene(registerDataModels(), m_view);
-  m_view->setScene(m_scene);
+  m_graphModel = std::make_shared<DataFlowGraphModel>(registerDataModels());
+  m_scene = new DataFlowGraphicsScene(*m_graphModel, widget);
+  m_view = new GraphicsView(m_scene, widget);
   layout->addWidget(m_view);
 
   auto *menu = menuBar();
   auto *fileMenu = menu->addMenu("File");
   auto *saveAction = fileMenu->addAction("Save...");
-  connect(saveAction, &QAction::triggered, m_scene, &FlowScene::save);
+  connect(saveAction, &QAction::triggered, m_scene, &DataFlowGraphicsScene::save);
   auto *loadAction = fileMenu->addAction("Load...");
-  connect(loadAction, &QAction::triggered, m_scene, &FlowScene::load);
+  connect(loadAction, &QAction::triggered, m_scene, &DataFlowGraphicsScene::load);
   auto *exitAction = fileMenu->addAction("Exit");
   connect(exitAction, &QAction::triggered, this,
           []() { QApplication::exit(0); });
@@ -56,8 +55,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow{parent} {
   resize(1024, 768);
 }
 
-std::shared_ptr<DataModelRegistry> MainWindow::registerDataModels() {
-  auto ret = std::make_shared<DataModelRegistry>();
+std::shared_ptr<NodeDelegateModelRegistry> MainWindow::registerDataModels() {
+  auto ret = std::make_shared<NodeDelegateModelRegistry>();
 
   ret->registerModel<DataSenderModel>("Sources");
 

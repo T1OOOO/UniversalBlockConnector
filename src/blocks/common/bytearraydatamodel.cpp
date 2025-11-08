@@ -9,7 +9,7 @@ constexpr int defaultInCount = 1;
 } // namespace
 
 ByteArrayDataModel::ByteArrayDataModel()
-    : NodeDataModel{}, m_uuid(QUuid::createUuid()) {
+    : NodeDelegateModel{}, m_uuid(QUuid::createUuid()) {
   setOutPortCount(defaultOutCount);
   setInPortCount(defaultInCount);
 }
@@ -17,7 +17,7 @@ ByteArrayDataModel::ByteArrayDataModel()
 ByteArrayDataModel::~ByteArrayDataModel() {}
 
 QJsonObject ByteArrayDataModel::save() const {
-  QJsonObject modelJson = NodeDataModel::save();
+  QJsonObject modelJson = NodeDelegateModel::save();
 
   QJsonObject obj = saveSettings();
   modelJson["settings"] = obj;
@@ -25,7 +25,9 @@ QJsonObject ByteArrayDataModel::save() const {
   return modelJson;
 }
 
-void ByteArrayDataModel::restore(QJsonObject const &p) {
+void ByteArrayDataModel::load(QJsonObject const &p) {
+  NodeDelegateModel::load(p);
+  
   QJsonValue v = p["settings"];
 
   if (!v.isUndefined()) {
@@ -268,8 +270,8 @@ bool ByteArrayDataModel::portCaptionVisible(PortType type, PortIndex) const {
   return false;
 }
 
-NodeDataModel::ConnectionPolicy
-ByteArrayDataModel::portInConnectionPolicy(QtNodes::PortIndex) const {
+ConnectionPolicy
+ByteArrayDataModel::portConnectionPolicy(PortType, PortIndex) const {
   return ConnectionPolicy::Many;
 }
 

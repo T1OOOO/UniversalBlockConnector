@@ -5,18 +5,19 @@
 #include <QObject>
 #include <QUuid>
 
-#include <nodes/NodeDataModel>
+#include <QtNodes/NodeDelegateModel>
 
 #include "bytearraydata.h"
 #include "bytearraydatacontroller.h"
 
+using QtNodes::ConnectionPolicy;
 using QtNodes::NodeData;
-using QtNodes::NodeDataModel;
+using QtNodes::NodeDelegateModel;
 using QtNodes::NodeDataType;
 using QtNodes::PortIndex;
 using QtNodes::PortType;
 
-class ByteArrayDataModel : public NodeDataModel {
+class ByteArrayDataModel : public NodeDelegateModel {
   Q_OBJECT
   LOG4QT_DECLARE_QCLASS_LOGGER
 
@@ -34,7 +35,7 @@ public:
 
   QJsonObject save() const override;
 
-  void restore(QJsonObject const &p) override;
+  void load(QJsonObject const &p) override;
 
   unsigned int nPorts(PortType portType) const override;
 
@@ -48,7 +49,7 @@ public:
 
   bool portCaptionVisible(PortType, PortIndex) const override;
 
-  ConnectionPolicy portInConnectionPolicy(PortIndex) const override;
+  ConnectionPolicy portConnectionPolicy(PortType, PortIndex) const override;
 
   QWidget *embeddedWidget() override {
     if (!m_dataController) {

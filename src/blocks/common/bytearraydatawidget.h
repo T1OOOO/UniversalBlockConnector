@@ -8,7 +8,7 @@
 #include <QTimer>
 #include <QWidget>
 
-#include <nodes/NodeDataModel>
+#include <QtNodes/NodeDelegateModel>
 
 #include "ledwidget.h"
 #include "log4qt/logger.h"

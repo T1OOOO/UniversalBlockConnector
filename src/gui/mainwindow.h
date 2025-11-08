@@ -4,13 +4,15 @@
 #include <QMainWindow>
 #include <QPointer>
 
-#include <nodes/DataModelRegistry>
-#include <nodes/FlowScene>
-#include <nodes/FlowView>
+#include <QtNodes/DataFlowGraphModel>
+#include <QtNodes/DataFlowGraphicsScene>
+#include <QtNodes/GraphicsView>
+#include <QtNodes/NodeDelegateModelRegistry>
 
-using QtNodes::DataModelRegistry;
-using QtNodes::FlowScene;
-using QtNodes::FlowView;
+using QtNodes::DataFlowGraphModel;
+using QtNodes::DataFlowGraphicsScene;
+using QtNodes::GraphicsView;
+using QtNodes::NodeDelegateModelRegistry;
 
 class MainWindow : public QMainWindow {
   Q_OBJECT
@@ -22,11 +24,12 @@ signals:
 protected:
   void setStyle();
 
-  std::shared_ptr<DataModelRegistry> registerDataModels();
+  std::shared_ptr<NodeDelegateModelRegistry> registerDataModels();
 
 private:
-  QPointer<FlowView> m_view;
-  QPointer<FlowScene> m_scene;
+  std::shared_ptr<DataFlowGraphModel> m_graphModel;
+  QPointer<GraphicsView> m_view;
+  QPointer<DataFlowGraphicsScene> m_scene;
 };
 
 #endif // MAINWINDOW_H
