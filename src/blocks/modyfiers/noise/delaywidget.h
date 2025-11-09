@@ -5,7 +5,7 @@
 #include <QPointer>
 #include <QWidget>
 
-#include "../../common/bytearraydatawidget.h"
+#include "common/bytearraydatawidget.h"
 
 class DelayWidget : public ByteArrayDataWidget {
   Q_OBJECT

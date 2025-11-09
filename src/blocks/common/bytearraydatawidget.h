@@ -1,6 +1,7 @@
 #ifndef BYTEARRAYDATAWIDGET_H
 #define BYTEARRAYDATAWIDGET_H
 
+#include <QColor>
 #include <QGridLayout>
 #include <QJsonObject>
 #include <QLabel>
@@ -28,6 +29,8 @@ public:
   virtual void restoreSettings(const QJsonObject &obj) = 0;
 
   void setTitle(const QString &str);
+
+  void setNodeBackgroundColor(const QColor &color);
 
   void slot_onReceiveData(const QByteArray &data);
 
@@ -65,6 +68,7 @@ private:
 
   QPointer<QGridLayout> m_layout;
   QPointer<QWidget> m_widget;
+  QColor m_nodeBackgroundColor;
 };
 
 #endif // BYTEARRAYDATAWIDGET_H

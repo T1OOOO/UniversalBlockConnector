@@ -8,7 +8,7 @@
 #include <QSpinBox>
 #include <QtSerialPort/QSerialPort>
 
-#include "../../common/bytearraydatawidget.h"
+#include "common/bytearraydatawidget.h"
 
 struct SerialSettings {
   QString port;

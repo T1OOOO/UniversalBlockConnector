@@ -9,6 +9,8 @@ SerialController::SerialController(QObject *parent)
   m_sock = new QSerialPort(this);
   connect(m_sock, &QSerialPort::readyRead, this,
           &SerialController::slot_onReadyRead);
+  connect(m_sock, &QSerialPort::errorOccurred, this,
+          &SerialController::slot_onErrorOccurred);
 
   m_widget = new SerialWidget();
   connect(m_widget, &SerialWidget::signal_open, this,
@@ -30,13 +32,14 @@ SerialController::~SerialController() { close(); }
 bool SerialController::open(const SerialSettings &settings) {
   close();
 
+  m_sock->setPortName(settings.port);
   m_sock->setBaudRate(settings.baudRate);
   m_sock->setDataBits(settings.dataBits);
   m_sock->setParity(settings.parity);
   m_sock->setStopBits(settings.stopBits);
   m_sock->setFlowControl(settings.flowControl);
   if (!m_sock->open(QSerialPort::ReadWrite)) {
-    emit signal_error("Udp does not open");
+    emit signal_error("Serial does not open");
 
     return false;
   }

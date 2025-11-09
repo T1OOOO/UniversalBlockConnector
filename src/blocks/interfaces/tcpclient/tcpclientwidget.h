@@ -7,7 +7,7 @@
 #include <QPushButton>
 #include <QSpinBox>
 
-#include "../../common/bytearraydatawidget.h"
+#include "common/bytearraydatawidget.h"
 
 class TcpClientWidget : public ByteArrayDataWidget {
   Q_OBJECT

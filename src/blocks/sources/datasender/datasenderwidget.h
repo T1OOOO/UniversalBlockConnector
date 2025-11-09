@@ -5,7 +5,7 @@
 #include <QPointer>
 #include <QWidget>
 
-#include "../../common/bytearraydatawidget.h"
+#include "common/bytearraydatawidget.h"
 
 class DataSenderWidget : public ByteArrayDataWidget {
   Q_OBJECT

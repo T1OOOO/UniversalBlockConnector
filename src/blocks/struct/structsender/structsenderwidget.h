@@ -7,7 +7,7 @@
 #include <QTreeView>
 
 #include "../../../3rdparty/QJsonModel/qjsonmodel.h"
-#include "../../common/bytearraydatawidget.h"
+#include "common/bytearraydatawidget.h"
 #include <qbinarizer/StructEncoder>
 
 class StructSenderWidget : public ByteArrayDataWidget {

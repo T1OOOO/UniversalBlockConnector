@@ -17,9 +17,6 @@
 #include "modyfiers/delay/delaydatamodel.h"
 #include "modyfiers/lost/lostdatamodel.h"
 #include "sources/datasender/datasendermodel.h"
-#include "struct/structsender/structsendermodel.h"
-#include "struct/structviewer/structviewermodel.h"
-#include "struct/structviewer/structviewermodel.h"
 #include "struct/structgraphviewer/structgraphviewermodel.h"
 #include "struct/structsender/structsendermodel.h"
 #include "struct/structviewer/structviewermodel.h"
@@ -44,9 +41,11 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow{parent} {
   auto *menu = menuBar();
   auto *fileMenu = menu->addMenu("File");
   auto *saveAction = fileMenu->addAction("Save...");
-  connect(saveAction, &QAction::triggered, m_scene, &DataFlowGraphicsScene::save);
+  connect(saveAction, &QAction::triggered, m_scene,
+          &DataFlowGraphicsScene::save);
   auto *loadAction = fileMenu->addAction("Load...");
-  connect(loadAction, &QAction::triggered, m_scene, &DataFlowGraphicsScene::load);
+  connect(loadAction, &QAction::triggered, m_scene,
+          &DataFlowGraphicsScene::load);
   auto *exitAction = fileMenu->addAction("Exit");
   connect(exitAction, &QAction::triggered, this,
           []() { QApplication::exit(0); });

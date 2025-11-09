@@ -6,7 +6,7 @@
 #include <QPushButton>
 #include <QSpinBox>
 
-#include "../../common/bytearraydatawidget.h"
+#include "common/bytearraydatawidget.h"
 
 class UdpWidget : public ByteArrayDataWidget {
   Q_OBJECT

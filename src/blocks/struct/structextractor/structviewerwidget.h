@@ -9,7 +9,7 @@
 #include <QTextEdit>
 #include <QWidget>
 
-#include "../../common/bytearraydatawidget.h"
+#include "common/bytearraydatawidget.h"
 #include "structviewerlistmodel.h"
 
 class StructViewerWidget : public ByteArrayDataWidget {

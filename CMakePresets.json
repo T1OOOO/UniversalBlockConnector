@@ -26,8 +26,7 @@
       "binaryDir": "${sourceDir}/build/debug",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
-        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
-        "CMAKE_CXX_FLAGS_DEBUG": "-glldb -gdwarf-5 -O0 -fno-omit-frame-pointer -fno-optimize-sibling-calls"
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
       },
       "toolchainFile": "${sourceDir}/cmake/clang-toolchain.cmake"
     },
@@ -39,8 +38,7 @@
       "binaryDir": "${sourceDir}/build/release",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",
-        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
-        "CMAKE_CXX_FLAGS_RELEASE": "-O3 -DNDEBUG"
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
       },
       "toolchainFile": "${sourceDir}/cmake/clang-toolchain.cmake"
     },

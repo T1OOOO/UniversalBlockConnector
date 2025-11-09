@@ -12,8 +12,8 @@
 
 using QtNodes::ConnectionPolicy;
 using QtNodes::NodeData;
-using QtNodes::NodeDelegateModel;
 using QtNodes::NodeDataType;
+using QtNodes::NodeDelegateModel;
 using QtNodes::PortIndex;
 using QtNodes::PortType;
 
@@ -63,6 +63,22 @@ public:
 
     QWidget *widget = dataController->getWidget();
 
+    // Set widget background color to match node color
+    if (widget) {
+      const auto &style = nodeStyle();
+      // Use GradientColor0 as the base background color (first gradient color)
+      QColor nodeColor = style.GradientColor0;
+      // If it's not valid, try GradientColor1
+      if (!nodeColor.isValid()) {
+        nodeColor = style.GradientColor1;
+      }
+      // Apply the color to the widget
+      auto *byteArrayWidget = qobject_cast<ByteArrayDataWidget *>(widget);
+      if (byteArrayWidget) {
+        byteArrayWidget->setNodeBackgroundColor(nodeColor);
+      }
+    }
+
     return widget;
   };
 
@@ -88,7 +104,7 @@ protected:
   virtual void restoreSettings(const QJsonObject &obj);
 
   virtual void receiveData(PortType portType, PortIndex portIndex,
-                           const QByteArray &data){};
+                           const QByteArray &data) {};
 
   void
   registerController(const QSharedPointer<ByteArrayDataController> &controller);

@@ -7,7 +7,7 @@
 #include <QTextEdit>
 #include <QWidget>
 
-#include "../../common/bytearraydatawidget.h"
+#include "common/bytearraydatawidget.h"
 #include "structchart.h"
 
 class StructGraphViewerWidget : public ByteArrayDataWidget {

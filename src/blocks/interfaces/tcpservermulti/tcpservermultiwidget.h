@@ -7,7 +7,7 @@
 #include <QSpinBox>
 #include <QTableView>
 
-#include "../../common/bytearraydatawidget.h"
+#include "common/bytearraydatawidget.h"
 #include "sockettabledelegate.h"
 #include "sockettablemodel.h"
 

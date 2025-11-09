@@ -27,7 +27,7 @@ QJsonObject ByteArrayDataModel::save() const {
 
 void ByteArrayDataModel::load(QJsonObject const &p) {
   NodeDelegateModel::load(p);
-  
+
   QJsonValue v = p["settings"];
 
   if (!v.isUndefined()) {
@@ -270,8 +270,8 @@ bool ByteArrayDataModel::portCaptionVisible(PortType type, PortIndex) const {
   return false;
 }
 
-ConnectionPolicy
-ByteArrayDataModel::portConnectionPolicy(PortType, PortIndex) const {
+ConnectionPolicy ByteArrayDataModel::portConnectionPolicy(PortType,
+                                                          PortIndex) const {
   return ConnectionPolicy::Many;
 }
 

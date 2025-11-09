@@ -53,7 +53,7 @@ void TcpClientController::close() {
   m_sock->disconnectFromHost();
   m_sock->close();
 
-  void signal_close();
+  emit signal_close();
 }
 
 void TcpClientController::write(const QByteArray &data) { m_sock->write(data); }

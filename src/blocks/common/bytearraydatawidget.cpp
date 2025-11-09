@@ -1,6 +1,8 @@
 #include "bytearraydatawidget.h"
 
+#include <QColor>
 #include <QGroupBox>
+#include <QPalette>
 #include <QPushButton>
 
 namespace {
@@ -47,6 +49,25 @@ void ByteArrayDataWidget::setTitle(const QString &str) {
   m_title->setText("<center>" + str + "</center>");
 }
 
+void ByteArrayDataWidget::setNodeBackgroundColor(const QColor &color) {
+  // Store the color for later use
+  m_nodeBackgroundColor = color;
+
+  // Set background color for the main widget
+  QPalette palette = this->palette();
+  palette.setColor(QPalette::Window, color);
+  this->setPalette(palette);
+  this->setAutoFillBackground(true);
+
+  // Also set background for the embedded widget
+  if (m_widget) {
+    QPalette widgetPalette = m_widget->palette();
+    widgetPalette.setColor(QPalette::Window, color);
+    m_widget->setPalette(widgetPalette);
+    m_widget->setAutoFillBackground(true);
+  }
+}
+
 void ByteArrayDataWidget::slot_onReceiveData(const QByteArray &data) {
   onReceiveData(data);
 }
@@ -73,6 +94,14 @@ void ByteArrayDataWidget::setWidget(QWidget *widget) {
   m_layout->replaceWidget(m_widget, widget);
   m_widget->deleteLater();
   m_widget = widget;
+
+  // Apply the stored node background color to the new widget
+  if (m_widget && m_nodeBackgroundColor.isValid()) {
+    QPalette widgetPalette = m_widget->palette();
+    widgetPalette.setColor(QPalette::Window, m_nodeBackgroundColor);
+    m_widget->setPalette(widgetPalette);
+    m_widget->setAutoFillBackground(true);
+  }
 }
 
 void ByteArrayDataWidget::slot_onInRx() { m_ledInRx->switchOnTimer(); }

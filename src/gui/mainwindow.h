@@ -9,8 +9,8 @@
 #include <QtNodes/GraphicsView>
 #include <QtNodes/NodeDelegateModelRegistry>
 
-using QtNodes::DataFlowGraphModel;
 using QtNodes::DataFlowGraphicsScene;
+using QtNodes::DataFlowGraphModel;
 using QtNodes::GraphicsView;
 using QtNodes::NodeDelegateModelRegistry;
 

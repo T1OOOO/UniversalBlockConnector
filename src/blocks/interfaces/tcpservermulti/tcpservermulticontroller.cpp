@@ -17,7 +17,7 @@ TcpServerMultiController::TcpServerMultiController(QObject *parent)
   connect(m_widget, &TcpServerMultiWidget::signal_close, this,
           &TcpServerMultiController::slot_onClose);
   connect(m_widget, &TcpServerMultiWidget::signal_closeSocket, this,
-          &TcpServerMultiController::slot_onClose);
+          &TcpServerMultiController::slot_onCloseSocket);
 
   connect(this, &TcpServerMultiController::signal_open, m_widget,
           &TcpServerMultiWidget::slot_onOpen);
@@ -186,11 +186,12 @@ void TcpServerMultiController::removeClient(QTcpSocket *sock) {
   }
 
   auto it = std::find(m_clientList.begin(), m_clientList.end(), sock);
-  if (it != m_clientList.end()) {
-    *it = nullptr;
+  if (it == m_clientList.end()) {
+    return;
   }
 
   const int num = std::distance(m_clientList.begin(), it);
+  *it = nullptr;
   auto *model = m_widget->getModel();
   model->resetClient(num);
 

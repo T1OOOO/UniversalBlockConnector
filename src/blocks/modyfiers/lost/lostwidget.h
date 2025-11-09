@@ -7,7 +7,7 @@
 #include <QSpinBox>
 #include <QWidget>
 
-#include "../../common/bytearraydatawidget.h"
+#include "common/bytearraydatawidget.h"
 
 enum LostMode { LM_PACKET = 0, LM_STREAM, LM_SIZE };
 Q_DECLARE_METATYPE(LostMode)

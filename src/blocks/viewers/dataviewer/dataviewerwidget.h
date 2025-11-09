@@ -8,7 +8,7 @@
 #include <QRadioButton>
 #include <QWidget>
 
-#include "../../common/bytearraydatawidget.h"
+#include "common/bytearraydatawidget.h"
 
 class DataViewerWidget : public ByteArrayDataWidget {
   Q_OBJECT
